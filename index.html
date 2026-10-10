@@ -712,61 +712,6 @@ header p {
     margin-top: 30px;
 }
 
-.whatsapp-box {
-    margin-top: 16px;
-    padding: 14px;
-    background: #f8fafc;
-    border: 1px solid var(--border-color);
-    border-radius: 12px;
-}
-
-.whatsapp-title {
-    font-size: 0.85rem;
-    font-weight: 800;
-    color: var(--text-main);
-    margin-bottom: 4px;
-    text-align: center;
-}
-
-.whatsapp-subtitle {
-    font-size: 0.72rem;
-    color: var(--text-muted);
-    text-align: center;
-    margin-bottom: 12px;
-}
-
-.whatsapp-options {
-    display: flex;
-    flex-direction: column;
-    gap: 8px;
-}
-
-.whatsapp-option {
-    width: 100%;
-    border: none;
-    padding: 11px 12px;
-    border-radius: 9px;
-    color: white;
-    font-family: inherit;
-    font-size: 0.82rem;
-    font-weight: 750;
-    cursor: pointer;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 7px;
-    transition: var(--transition);
-}
-
-.whatsapp-option:hover {
-    transform: translateY(-1px);
-    opacity: 0.94;
-}
-
-.btn-whatsapp { background: #25d366; }
-.btn-business { background: #128c7e; }
-.btn-web { background: #111827; }
-
 #toastContainer {
     position: fixed;
     bottom: 20px;
@@ -1759,16 +1704,7 @@ function renderizarContenidoDrawer() {
                 <div class="form-group"><label>Observaciones</label><textarea id="obsCliente" rows="2" placeholder="Comentarios..." oninput="guardarDatosClienteStorage()"></textarea></div>
                 <div class="form-buttons">
                     <button type="button" class="btn-back" onclick="window.cambiarAVistaCarrito()">Volver</button>
-                    <button type="submit" class="btn-submit-order">💬 Elegir WhatsApp</button>
-                </div>
-                <div class="whatsapp-box">
-                    <div class="whatsapp-title">📲 ¿Cómo querés enviar tu pedido?</div>
-                    <div class="whatsapp-subtitle">Primero se generará automáticamente tu código de seguimiento.</div>
-                    <div class="whatsapp-options">
-                        <button type="button" class="whatsapp-option btn-whatsapp" onclick="window.enviarOrdenWhatsApp(event, 'whatsapp')">💬 WhatsApp</button>
-                        <button type="button" class="whatsapp-option btn-business" onclick="window.enviarOrdenWhatsApp(event, 'business')">🟢 WhatsApp Business</button>
-                        <button type="button" class="whatsapp-option btn-web" onclick="window.enviarOrdenWhatsApp(event, 'web')">💻 WhatsApp Web / PC</button>
-                    </div>
+                    <button type="submit" class="btn-submit-order">💬 Enviar Pedido</button>
                 </div>
             </form>
         `;
@@ -1786,7 +1722,7 @@ window.cambiarAVistaCarrito = function() {
     renderizarContenidoDrawer();
 };
 
-window.enviarOrdenWhatsApp = function(event, destino = 'whatsapp') {
+window.enviarOrdenWhatsApp = function(event) {
     if (event) event.preventDefault();
     const form = document.getElementById('orderForm');
     if (form && !form.checkValidity()) {
@@ -1837,14 +1773,7 @@ window.enviarOrdenWhatsApp = function(event, destino = 'whatsapp') {
     mensaje += `Hola, ya elegí mi producto y me gustaría avanzar con la compra.`;
 
     const textoCodificado = encodeURIComponent(mensaje);
-    let url = '';
-    if (destino === 'web') {
-        url = `https://web.whatsapp.com/send?phone=${NUMERO_WHATSAPP}&text=${textoCodificado}`;
-    } else if (destino === 'business') {
-        url = `https://api.whatsapp.com/send?phone=${NUMERO_WHATSAPP}&text=${textoCodificado}`;
-    } else {
-        url = `https://wa.me/${NUMERO_WHATSAPP}?text=${textoCodificado}`;
-    }
+    const url = `https://wa.me/${NUMERO_WHATSAPP}?text=${textoCodificado}`;
 
     window.open(url, '_blank', 'noopener,noreferrer');
 

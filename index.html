@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Nova Envíos & Créditos - Catálogo y Orden de Compra</title>
 
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Outfit:wght@600;700;800;900&display=swap" rel="stylesheet">
 
 <style>
 :root {
@@ -47,6 +47,10 @@ body {
     overflow-x: hidden;
 }
 
+h1, h2, h3, h4, .navbar-brand {
+    font-family: 'Outfit', sans-serif;
+}
+
 .top-trust-bar {
     background: #111827;
     color: #f9fafb;
@@ -81,21 +85,27 @@ body {
     position: sticky;
     top: 0;
     z-index: 100;
-    padding: 13px 20px;
+    padding: 12px 20px;
     display: flex;
     justify-content: space-between;
     align-items: center;
 }
 
 .navbar-brand {
-    font-size: 1rem;
-    font-weight: 800;
+    font-size: 1.25rem;
+    font-weight: 900;
+    letter-spacing: -0.5px;
     color: var(--primary-color);
-    letter-spacing: -0.3px;
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    max-width: 70%;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    text-decoration: none;
+}
+
+.navbar-logo-svg {
+    width: 32px;
+    height: 32px;
+    display: block;
 }
 
 .cart-btn {
@@ -927,7 +937,14 @@ header p {
 </div>
 
 <nav class="navbar">
-    <div class="navbar-brand">Nova Envíos & Créditos</div>
+    <div class="navbar-brand">
+        <svg class="navbar-logo-svg" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <rect width="100" height="100" rx="22" fill="#2563EB"/>
+            <path d="M25 75V25L55 60V25" stroke="white" stroke-width="12" stroke-linecap="round" stroke-linejoin="round"/>
+            <path d="M75 25L50 50M75 25H55M75 25V45" stroke="#F97316" stroke-width="10" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+        Nova Envíos & Créditos
+    </div>
     <button class="cart-btn" id="cartBtnMain" onclick="toggleCart()">
         🛒 Carrito <span class="cart-badge" id="cartCount">0</span>
     </button>

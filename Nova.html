@@ -1,0 +1,1846 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Nova Envíos & Créditos - Catálogo y Orden de Compra</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+<style>
+:root {
+    --primary-color: #2563eb;
+    --primary-dark: #1d4ed8;
+    --primary-light: #eff6ff;
+    --accent-color: #f97316;
+    --accent-light: #fff7ed;
+    --success-color: #10b981;
+    --success-dark: #059669;
+    --text-main: #111827;
+    --text-secondary: #374151;
+    --text-muted: #6b7280;
+    --bg-body: #f6f8fb;
+    --bg-card: #ffffff;
+    --bg-soft: #f8fafc;
+    --border-color: #e5e7eb;
+    --border-light: #eef0f3;
+    --radius: 14px;
+    --transition: all 0.25s ease;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: 'Inter', sans-serif;
+    background: linear-gradient(180deg, #f8fafc 0%, #f3f5f9 100%);
+    color: var(--text-main);
+    line-height: 1.5;
+    padding-bottom: 60px;
+    overflow-x: hidden;
+}
+
+.top-trust-bar {
+    background: #111827;
+    color: #f9fafb;
+    font-size: 0.7rem;
+    padding: 8px 12px;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 16px;
+    font-weight: 500;
+    overflow-x: auto;
+    white-space: nowrap;
+    width: 100%;
+    -webkit-overflow-scrolling: touch;
+}
+
+.top-trust-bar::-webkit-scrollbar {
+    display: none;
+}
+
+.top-trust-bar span {
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+    flex-shrink: 0;
+}
+
+.navbar {
+    background: rgba(255,255,255,0.96);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid var(--border-light);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    padding: 13px 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.navbar-brand {
+    font-size: 1rem;
+    font-weight: 800;
+    color: var(--primary-color);
+    letter-spacing: -0.3px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    max-width: 70%;
+}
+
+.cart-btn {
+    background: var(--primary-color);
+    color: white;
+    border: none;
+    padding: 8px 12px;
+    border-radius: 9px;
+    font-weight: 700;
+    font-size: 0.82rem;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    transition: var(--transition);
+    box-shadow: 0 3px 8px rgba(37,99,235,0.18);
+    flex-shrink: 0;
+}
+
+.cart-btn.bounce {
+    animation: cartBounce 0.4s ease;
+}
+
+@keyframes cartBounce {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.15); }
+}
+
+.cart-badge {
+    background: var(--accent-color);
+    color: white;
+    min-width: 18px;
+    height: 18px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    padding: 2px 4px;
+    font-size: 0.65rem;
+    font-weight: 800;
+}
+
+header {
+    text-align: center;
+    margin: 32px 0 20px;
+    padding: 0 16px;
+}
+
+.header-kicker {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    background: var(--primary-light);
+    color: var(--primary-color);
+    border: 1px solid #dbeafe;
+    padding: 5px 10px;
+    border-radius: 20px;
+    font-size: 0.7rem;
+    font-weight: 800;
+    text-transform: uppercase;
+    margin-bottom: 10px;
+}
+
+header h1 {
+    font-size: clamp(1.7rem, 4vw, 2.65rem);
+    color: var(--text-main);
+    margin-bottom: 8px;
+    font-weight: 800;
+    letter-spacing: -1px;
+}
+
+header p {
+    color: var(--text-muted);
+    font-size: 0.88rem;
+    max-width: 620px;
+    margin: 0 auto;
+}
+
+.header-highlight {
+    color: var(--accent-color);
+    font-weight: 700;
+}
+
+.container {
+    max-width: 1240px;
+    margin: 0 auto;
+    padding: 0 14px;
+}
+
+.aviso-mantenimiento {
+    width: 100%;
+    max-width: 900px;
+    margin: 0 auto 22px;
+    padding: 16px 20px;
+    background: #fff7ed;
+    border: 1px solid #fed7aa;
+    border-left: 5px solid #f97316;
+    border-radius: 12px;
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.04);
+    text-align: left;
+}
+
+.aviso-mantenimiento h3 {
+    margin: 0 0 6px;
+    font-size: 16px;
+    font-weight: 800;
+    color: #c2410c;
+}
+
+.aviso-mantenimiento p {
+    margin: 0;
+    font-size: 14px;
+    line-height: 1.55;
+    color: #7c2d12;
+}
+
+.controls-wrapper {
+    max-width: 100%;
+    margin: 0 0 16px;
+    display: flex;
+    gap: 12px;
+    align-items: stretch;
+    flex-direction: column;
+}
+
+.search-wrapper, .sort-wrapper {
+    width: 100%;
+}
+
+.search-input, .sort-select {
+    width: 100%;
+    padding: 11px 15px;
+    border-radius: 25px;
+    border: 1px solid var(--border-color);
+    background: #fff;
+    font-family: inherit;
+    font-size: 16px;
+    outline: none;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.03);
+}
+
+.filtros-wrapper {
+    margin: 0 -14px 18px;
+    padding: 0 14px;
+    width: calc(100% + 28px);
+    overflow: hidden;
+}
+
+.filtros {
+    display: flex;
+    gap: 6px;
+    overflow-x: auto;
+    padding: 4px 4px 8px;
+    scrollbar-width: thin;
+    -webkit-overflow-scrolling: touch;
+}
+
+.filter-btn {
+    flex: 0 0 auto;
+    background: rgba(255,255,255,0.9);
+    color: var(--text-secondary);
+    border: 1px solid var(--border-color);
+    padding: 6px 12px;
+    border-radius: 22px;
+    font-weight: 650;
+    cursor: pointer;
+    font-size: 0.75rem;
+}
+
+.filter-btn.active {
+    background: var(--primary-color);
+    color: white;
+    border-color: var(--primary-color);
+}
+
+.grid-productos {
+    display: grid;
+    grid-template-columns: repeat(1, minmax(0, 1fr));
+    gap: 16px;
+}
+
+.card {
+    background: var(--bg-card);
+    border-radius: var(--radius);
+    border: 1px solid var(--border-color);
+    box-shadow: 0 2px 5px rgba(15,23,42,0.035);
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    opacity: 0;
+    transform: translateY(15px);
+    animation: fadeInUp 0.4s ease forwards;
+}
+
+@keyframes fadeInUp {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.badge-stock {
+    position: absolute;
+    top: 12px;
+    right: 12px;
+    background: rgba(255,255,255,0.92);
+    color: #047857;
+    border: 1px solid #a7f3d0;
+    font-size: 0.65rem;
+    font-weight: 800;
+    padding: 4px 8px;
+    border-radius: 20px;
+    z-index: 10;
+}
+
+.product-gallery-container {
+    padding: 12px;
+    background: #fafafa;
+    border-bottom: 1px solid var(--border-light);
+}
+
+.main-image-container {
+    width: 100%;
+    height: 200px;
+    border-radius: 8px;
+    overflow: hidden;
+    margin-bottom: 8px;
+    background: #fff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid #e2e8f0;
+    cursor: zoom-in;
+    position: relative;
+}
+
+.main-image-container img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.3s ease;
+}
+
+.main-image-container:hover img {
+    transform: scale(1.03);
+}
+
+.thumbnails-container {
+    display: flex;
+    gap: 6px;
+    justify-content: flex-start;
+    width: 100%;
+    overflow-x: auto;
+    padding-bottom: 4px;
+}
+
+.thumbnail {
+    width: 48px;
+    height: 48px;
+    border-radius: 6px;
+    object-fit: cover;
+    cursor: pointer;
+    border: 2px solid transparent;
+    background: #fff;
+    flex-shrink: 0;
+}
+
+.thumbnail.active {
+    border-color: var(--primary-color);
+}
+
+.card-body {
+    padding: 16px;
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+}
+
+.card-category {
+    font-size: 0.65rem;
+    text-transform: uppercase;
+    color: var(--primary-color);
+    font-weight: 800;
+    margin-bottom: 5px;
+}
+
+.card-title {
+    font-size: 1rem;
+    font-weight: 750;
+    color: var(--text-main);
+    margin-bottom: 8px;
+}
+
+.card-desc {
+    font-size: 0.8rem;
+    color: var(--text-muted);
+    margin-bottom: 12px;
+    min-height: 48px;
+}
+
+.ver-mas-btn {
+    border: none;
+    background: transparent;
+    color: var(--primary-color);
+    font-weight: 750;
+    font-size: 0.74rem;
+    cursor: pointer;
+}
+
+.specs-list {
+    background: #f8fafc;
+    border: 1px solid var(--border-light);
+    border-radius: 9px;
+    padding: 9px 10px;
+    margin-bottom: 14px;
+    font-size: 0.75rem;
+}
+
+.specs-list div {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 5px;
+}
+
+.specs-list div:last-child {
+    margin-bottom: 0;
+}
+
+.spec-label {
+    color: var(--text-muted);
+}
+
+.spec-value {
+    color: var(--text-secondary);
+    font-weight: 700;
+    text-align: right;
+}
+
+.pricing {
+    margin-top: auto;
+    border-top: 1px solid var(--border-light);
+    padding-top: 12px;
+}
+
+.price-offer {
+    font-size: 1.35rem;
+    font-weight: 800;
+    color: var(--text-main);
+}
+
+.cuotas-badge {
+    font-size: 0.7rem;
+    color: var(--accent-color);
+    background: var(--accent-light);
+    border: 1px solid #fed7aa;
+    border-radius: 6px;
+    padding: 4px 7px;
+    font-weight: 750;
+    margin: 3px 0 10px;
+    display: inline-block;
+}
+
+.btn-add-cart {
+    width: 100%;
+    background: var(--primary-color);
+    color: white;
+    border: none;
+    padding: 10px;
+    border-radius: 9px;
+    font-weight: 750;
+    cursor: pointer;
+    transition: var(--transition);
+}
+
+.btn-add-cart:hover {
+    background: var(--primary-dark);
+}
+
+.paginacion {
+    display: flex;
+    justify-content: center;
+    gap: 6px;
+    margin: 28px 0 10px;
+    flex-wrap: wrap;
+}
+
+.paginacion button {
+    min-width: 36px;
+    height: 36px;
+    border: 1px solid var(--border-color);
+    background: white;
+    border-radius: 8px;
+    font-weight: 700;
+    cursor: pointer;
+}
+
+.paginacion button.active {
+    background: var(--primary-color);
+    color: white;
+}
+
+.modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(15,23,42,0.48);
+    display: flex;
+    justify-content: flex-end;
+    z-index: 1000;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.3s ease;
+}
+
+.modal-overlay.active {
+    opacity: 1;
+    visibility: visible;
+}
+
+.cart-drawer {
+    background-color: white;
+    width: 100%;
+    max-width: 440px;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    transform: translateX(100%);
+    transition: transform 0.3s ease;
+}
+
+.modal-overlay.active .cart-drawer {
+    transform: translateX(0);
+}
+
+.cart-header {
+    padding: 14px 16px;
+    border-bottom: 1px solid var(--border-color);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.close-cart {
+    background: none;
+    border: none;
+    font-size: 1.5rem;
+    cursor: pointer;
+    color: var(--text-muted);
+}
+
+.cart-body {
+    padding: 14px 16px;
+    overflow-y: auto;
+    flex-grow: 1;
+}
+
+.cart-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 8px;
+    padding: 8px 0;
+    border-bottom: 1px solid var(--border-color);
+}
+
+.cart-item-info h4 {
+    font-size: 0.86rem;
+    margin-bottom: 2px;
+}
+
+.cart-item-price {
+    font-size: 0.78rem;
+    color: var(--text-muted);
+}
+
+.cart-item-actions {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+
+.qty-btn {
+    background-color: var(--bg-body);
+    border: 1px solid var(--border-color);
+    padding: 2px 6px;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.remove-btn {
+    background: none;
+    border: none;
+    color: #ef4444;
+    cursor: pointer;
+}
+
+.payment-select,
+.form-group input,
+.form-group textarea {
+    width: 100%;
+    padding: 9px;
+    border-radius: 8px;
+    border: 1px solid var(--border-color);
+    font-family: inherit;
+    font-size: 16px;
+    transition: border-color 0.2s;
+}
+
+.form-group input:not(:placeholder-shown):valid,
+.form-group textarea:not(:placeholder-shown):valid {
+    border-color: var(--success-color);
+    background-color: #f0fdf4;
+}
+
+.form-group input:not(:placeholder-shown):invalid {
+    border-color: #ef4444;
+    background-color: #fef2f2;
+}
+
+.cart-summary-line {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 5px;
+    font-size: 0.82rem;
+}
+
+.cart-total {
+    display: flex;
+    justify-content: space-between;
+    font-size: 1.02rem;
+    font-weight: 700;
+    margin: 10px 0;
+}
+
+.checkout-btn {
+    width: 100%;
+    background-color: #10b981;
+    color: white;
+    border: none;
+    padding: 11px;
+    border-radius: 8px;
+    font-weight: 700;
+    cursor: pointer;
+}
+
+.form-group {
+    margin-bottom: 10px;
+}
+
+.form-group label {
+    display: block;
+    font-size: 0.8rem;
+    font-weight: 600;
+    margin-bottom: 3px;
+}
+
+.inline-group {
+    display: flex;
+    gap: 8px;
+}
+
+.inline-group > div {
+    flex: 1;
+}
+
+.form-buttons {
+    display: flex;
+    gap: 8px;
+    margin-top: 14px;
+}
+
+.btn-back {
+    background-color: var(--text-muted);
+    color: white;
+    border: none;
+    padding: 10px;
+    border-radius: 8px;
+    width: 35%;
+    cursor: pointer;
+    font-weight: 600;
+}
+
+.btn-submit-order {
+    background-color: #25d366;
+    color: white;
+    border: none;
+    padding: 10px;
+    border-radius: 8px;
+    font-weight: 700;
+    width: 65%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 6px;
+    cursor: pointer;
+}
+
+.empty-cart {
+    text-align: center;
+    color: var(--text-muted);
+    margin-top: 30px;
+}
+
+.whatsapp-box {
+    margin-top: 16px;
+    padding: 14px;
+    background: #f8fafc;
+    border: 1px solid var(--border-color);
+    border-radius: 12px;
+}
+
+.whatsapp-title {
+    font-size: 0.85rem;
+    font-weight: 800;
+    color: var(--text-main);
+    margin-bottom: 4px;
+    text-align: center;
+}
+
+.whatsapp-subtitle {
+    font-size: 0.72rem;
+    color: var(--text-muted);
+    text-align: center;
+    margin-bottom: 12px;
+}
+
+.whatsapp-options {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.whatsapp-option {
+    width: 100%;
+    border: none;
+    padding: 11px 12px;
+    border-radius: 9px;
+    color: white;
+    font-family: inherit;
+    font-size: 0.82rem;
+    font-weight: 750;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 7px;
+    transition: var(--transition);
+}
+
+.whatsapp-option:hover {
+    transform: translateY(-1px);
+    opacity: 0.94;
+}
+
+.btn-whatsapp { background: #25d366; }
+.btn-business { background: #128c7e; }
+.btn-web { background: #111827; }
+
+#toastContainer {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    z-index: 9999;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.toast {
+    background: #111827;
+    color: white;
+    padding: 12px 18px;
+    border-radius: 10px;
+    font-size: 0.85rem;
+    font-weight: 600;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    animation: toastIn 0.3s ease, toastOut 0.3s ease 2.7s forwards;
+}
+
+@keyframes toastIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes toastOut {
+    to { opacity: 0; transform: translateY(10px); }
+}
+
+.lightbox-modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.85);
+    z-index: 2000;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.3s ease;
+}
+
+.lightbox-modal.active {
+    opacity: 1;
+    visibility: visible;
+}
+
+.lightbox-content {
+    max-width: 90%;
+    max-height: 90%;
+    border-radius: 8px;
+    object-fit: contain;
+}
+
+.lightbox-close {
+    position: absolute;
+    top: 20px;
+    right: 30px;
+    background: none;
+    border: none;
+    color: white;
+    font-size: 2.5rem;
+    cursor: pointer;
+}
+
+@media (max-width: 599px) {
+    .grid-productos {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 10px;
+    }
+    
+    .main-image-container {
+        height: 130px;
+    }
+
+    .card-body {
+        padding: 10px;
+    }
+
+    .card-title {
+        font-size: 0.85rem;
+        min-height: 2.4em;
+    }
+
+    .price-offer {
+        font-size: 1.05rem;
+    }
+
+    .btn-add-cart {
+        padding: 8px;
+        font-size: 0.75rem;
+    }
+
+    .thumbnail {
+        width: 38px;
+        height: 38px;
+    }
+}
+
+@media (max-width: 600px) {
+    .inline-group {
+        flex-direction: column;
+        gap: 0;
+    }
+    .form-buttons {
+        flex-direction: column;
+    }
+    .btn-back,
+    .btn-submit-order {
+        width: 100%;
+    }
+    .cart-drawer {
+        max-width: 100%;
+        height: 100vh;
+        border-radius: 0;
+    }
+}
+
+@media (min-width: 600px) {
+    .controls-wrapper {
+        flex-direction: row;
+        align-items: center;
+        justify-content: center;
+        max-width: 900px;
+        margin: 0 auto 16px;
+    }
+    .search-wrapper {
+        flex: 1;
+    }
+    .sort-wrapper {
+        width: 220px;
+    }
+    .form-group input,
+    .form-group textarea,
+    .payment-select,
+    .search-input,
+    .sort-select {
+        font-size: 0.9rem !important;
+    }
+}
+
+@media (min-width: 640px) {
+    .grid-productos { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 18px; }
+}
+@media (min-width: 960px) {
+    .grid-productos { grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 20px; }
+}
+@media (min-width: 1200px) {
+    .grid-productos { grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 20px; }
+}
+</style>
+</head>
+
+<body>
+
+<div class="top-trust-bar">
+    <span>🔒 Compra 100% Segura</span>
+    <span>⚡ 15% OFF por Transferencia</span>
+    <span>📦 Envíos a todo el país</span>
+    <span>🛡️ Garantía Oficial</span>
+</div>
+
+<nav class="navbar">
+    <div class="navbar-brand">Nova Envíos & Créditos</div>
+    <button class="cart-btn" id="cartBtnMain" onclick="toggleCart()">
+        🛒 Carrito <span class="cart-badge" id="cartCount">0</span>
+    </button>
+</nav>
+
+<div class="container">
+<header>
+    <div class="header-kicker">✦ Catálogo exclusivo</div>
+    <h1>Catálogo de Productos</h1>
+    <p>Encontrá productos seleccionados con <span class="header-highlight">precio especial por transferencia</span> y opciones de pago flexibles.</p>
+</header>
+
+<div class="aviso-mantenimiento">
+    <h3>Aviso de Mantenimiento</h3>
+    <p>"La página se encuentra en mantenimiento y algunas imágenes pueden no coincidir exactamente con el producto. Podés realizar tu pedido con total tranquilidad."</p>
+</div>
+
+<div class="controls-wrapper">
+    <div class="search-wrapper">
+        <input type="text" id="searchInput" class="search-input" placeholder="🔍 Buscar por nombre, marca o modelo..." oninput="buscarProductos()">
+    </div>
+    <div class="sort-wrapper">
+        <select id="sortSelect" class="sort-select" onchange="ordenarProductos()">
+            <option value="recientes">Más recientes</option>
+            <option value="menor-precio">Menor precio</option>
+            <option value="mayor-precio">Mayor precio</option>
+            <option value="az">Alfabético (A-Z)</option>
+        </select>
+    </div>
+</div>
+
+<div class="filtros-wrapper">
+    <div class="filtros">
+        <button class="filter-btn active" onclick="filtrarCategoria('Todas', this)">Todas</button>
+        <button class="filter-btn" onclick="filtrarCategoria('Celulares', this)">Celulares</button>
+        <button class="filter-btn" onclick="filtrarCategoria('Gaming', this)">Gaming</button>
+        <button class="filter-btn" onclick="filtrarCategoria('Televisores y Monitores', this)">Televisores / Monitores</button>
+        <button class="filter-btn" onclick="filtrarCategoria('Aires Acondicionados', this)">Aires Acondicionados</button>
+        <button class="filter-btn" onclick="filtrarCategoria('Heladeras y Freezers', this)">Heladeras / Freezers</button>
+        <button class="filter-btn" onclick="filtrarCategoria('Cocinas y Hornos', this)">Cocinas / Hornos</button>
+        <button class="filter-btn" onclick="filtrarCategoria('Lavarropas y Secadoras', this)">Lavarropas / Secadoras</button>
+        <button class="filter-btn" onclick="filtrarCategoria('Pequeños Electrodomésticos', this)">Pequeños Electrodomésticos</button>
+        <button class="filter-btn" onclick="filtrarCategoria('Aspiradoras', this)">Aspiradoras</button>
+        <button class="filter-btn" onclick="filtrarCategoria('Termotanques y Calefones', this)">Termotanques</button>
+        <button class="filter-btn" onclick="filtrarCategoria('Informática', this)">Informática</button>
+        <button class="filter-btn" onclick="filtrarCategoria('Audio', this)">Audio</button>
+        <button class="filter-btn" onclick="filtrarCategoria('Accesorios', this)">Accesorios</button>
+    </div>
+</div>
+
+<div class="grid-productos" id="gridProductos"></div>
+<div id="paginacion" class="paginacion"></div>
+</div>
+
+<div class="modal-overlay" id="cartModal" onclick="handleOutsideClick(event)">
+    <div class="cart-drawer">
+        <div class="cart-header">
+            <h3 id="drawerTitle" style="font-size:1.05rem;">Tu Carrito de Compras</h3>
+            <button class="close-cart" onclick="toggleCart()">&times;</button>
+        </div>
+        <div class="cart-body" id="cartBodyContent"></div>
+    </div>
+</div>
+
+<div class="lightbox-modal" id="lightboxModal" onclick="cerrarLightbox(event)">
+    <button class="lightbox-close" onclick="cerrarLightbox()">&times;</button>
+    <img class="lightbox-content" id="lightboxImg" src="" alt="Ampliada">
+</div>
+
+<div id="toastContainer"></div>
+
+<script>
+// =========================================================================
+// DATA DE PRODUCTOS COMPLETA (39 PRODUCTOS - 3 POR CADA UNA DE LAS 13 CATEGORÍAS)
+// =========================================================================
+const productos = [
+  // 1. CELULARES
+  {
+    id: 101, sku: "CEL-S23FE", nombre: "Samsung Galaxy S23 FE 128GB 8GB RAM", marca: "Samsung", modelo: "S23 FE", categoria: "Celulares",
+    descripcion: "Smartphone de gama alta accesible con cámara profesional de 50 MP, pantalla Dynamic AMOLED 2X de 120Hz y procesador Exynos 2200 de gran rendimiento.",
+    especificaciones: { pantalla: "6.4\" FHD+ AMOLED 120Hz", camara: "50MP + 12MP + 8MP", almacenamiento: "128 GB", ram: "8 GB" },
+    precioOferta: 890000, stock: true, imagenes: ["https://images.unsplash.com/photo-1610945265064-0e34e5519bbf?w=500"]
+  },
+  {
+    id: 102, sku: "CEL-G845G", nombre: "Motorola Moto G84 5G 256GB 8GB RAM", marca: "Motorola", modelo: "Moto G84", categoria: "Celulares",
+    descripcion: "Diseño elegante con acabado de cuero vegano, pantalla pOLED ultra fluida y cámara principal de 50 MP con Estabilización Óptica (OIS).",
+    especificaciones: { pantalla: "6.55\" FHD+ pOLED 120Hz", camara: "50MP OIS + 8MP", almacenamiento: "256 GB", ram: "8 GB" },
+    precioOferta: 480000, stock: true, imagenes: ["https://images.unsplash.com/photo-1598327105666-5b89351aff97?w=500"]
+  },
+  {
+    id: 103, sku: "CEL-RN13P", nombre: "Xiaomi Redmi Note 13 Pro 256GB 8GB RAM", marca: "Xiaomi", modelo: "Redmi Note 13 Pro", categoria: "Celulares",
+    descripcion: "Destaca por su cámara ultra nítida de 200 MP, carga súper rápida de 67W y pantalla AMOLED bordes ultrafinos de máxima precisión.",
+    especificaciones: { pantalla: "6.67\" AMOLED 120Hz", camara: "200MP + 8MP + 2MP", almacenamiento: "256 GB", ram: "8 GB" },
+    precioOferta: 520000, stock: true, imagenes: ["https://images.unsplash.com/photo-1567581935884-3349723552ca?w=500"]
+  },
+
+  // 2. GAMING
+  {
+    id: 201, sku: "GAM-PS5SL", nombre: "Consola Sony PlayStation 5 Slim 1TB", marca: "Sony", modelo: "PS5 Slim Standard", categoria: "Gaming",
+    descripcion: "Procesamiento ultrarrápido con SSD de alta velocidad, respuesta háptica con joysticks DualSense y soporte para gráficos 4K a 120 FPS.",
+    especificaciones: { almacenamiento: "1 TB SSD", resolucion: "Hasta 4K 120Hz", lectora: "Sí (Edición Disco)" },
+    precioOferta: 1250000, stock: true, imagenes: ["https://images.unsplash.com/photo-1606813907291-d86efa9b94db?w=500"]
+  },
+  {
+    id: 202, sku: "GAM-SWOLED", nombre: "Consola Nintendo Switch OLED 64GB", marca: "Nintendo", modelo: "Switch OLED", categoria: "Gaming",
+    descripcion: "Pantalla OLED de 7 pulgadas con colores vibrantes, soporte ajustable amplio, base con puerto LAN por cable y 64 GB de almacenamiento.",
+    especificaciones: { pantalla: "7\" OLED multitáctil", almacenamiento: "64 GB interno", modos: "TV, Portátil, Sobremesa" },
+    precioOferta: 680000, stock: true, imagenes: ["https://images.unsplash.com/photo-1578303512597-81e6cc155b3e?w=500"]
+  },
+  {
+    id: 203, sku: "GAM-XBCON", nombre: "Joystick Inalámbrico Xbox Controller Carbon Black", marca: "Microsoft", modelo: "Xbox Wireless Controller", categoria: "Gaming",
+    descripcion: "Diseño ergonómico con agarre texturizado en gatillos y botones, agarre de cruceta híbrida y tecnología Bluetooth para Xbox y PC.",
+    especificaciones: { conexion: "Bluetooth / Xbox Wireless", compatibilidad: "Xbox Series, PC, iOS, Android" },
+    precioOferta: 115000, stock: true, imagenes: ["https://images.unsplash.com/photo-1600080972464-8e5f35f63d08?w=500"]
+  },
+
+  // 3. TELEVISORES Y MONITORES
+  {
+    id: 301, sku: "TV-LG55UR", nombre: "Smart TV LG 55\" 4K UHD ThinQ AI 55UR8750", marca: "LG", modelo: "55UR8750", categoria: "Televisores y Monitores",
+    descripcion: "Resolución Real 4K, procesador α5 AI 4K Gen6, compatibilidad con HDR10 Pro y sistema operativo webOS 23 con control por voz.",
+    especificaciones: { pantalla: "55\" LED 4K UHD", smartTV: "webOS 23", audio: "20W AI Sound" },
+    precioOferta: 720000, stock: true, imagenes: ["https://images.unsplash.com/photo-1593784991095-a205069470b6?w=500"]
+  },
+  {
+    id: 302, sku: "TV-SAM43F", nombre: "Smart TV Samsung 43\" FHD Series 5 UN43T5300", marca: "Samsung", modelo: "UN43T5300", categoria: "Televisores y Monitores",
+    descripcion: "Calidad de imagen Full HD con tecnología PurColor y Ultra Clean View para imágenes nítidas. Acceso rápido a tus apps favoritas con Tizen OS.",
+    especificaciones: { pantalla: "43\" LED Full HD", smartTV: "Tizen OS", conectividad: "2 HDMI, 1 USB" },
+    precioOferta: 430000, stock: true, imagenes: ["https://images.unsplash.com/photo-1593359677879-a4bb92f829d1?w=500"]
+  },
+  {
+    id: 303, sku: "MON-G4240", nombre: "Monitor Gamer Samsung Odyssey G4 27\" FHD 240Hz", marca: "Samsung", modelo: "Odyssey G4 LS27BG400", categoria: "Televisores y Monitores",
+    descripcion: "Panel IPS con ángulo de visión amplio, frecuencia de actualización ultrarrápida de 240Hz y 1ms de tiempo de respuesta con G-Sync y FreeSync Premium.",
+    especificaciones: { pantalla: "27\" IPS FHD", refresco: "240 Hz", respuesta: "1 ms (GTG)" },
+    precioOferta: 490000, stock: true, imagenes: ["https://images.unsplash.com/photo-1527443224154-c4a3942d3acf?w=500"]
+  },
+
+  // 4. AIRES ACONDICIONADOS
+  {
+    id: 401, sku: "AIR-BGH3000", nombre: "Aire Acondicionado Split BGH Silent Air 3000 FC", marca: "BGH", modelo: "BS30WCCR", categoria: "Aires Acondicionados",
+    descripcion: "Eficiencia energética A, bajo nivel sonoro, función deshumidificación y filtro lavable para mantener el aire limpio en ambientes medianos.",
+    especificaciones: { capacidad: "3000 Frigorías (3500W)", tipo: "Frío / Calor", eficiencia: "Clase A" },
+    precioOferta: 650000, stock: true, imagenes: ["https://images.unsplash.com/photo-1625961332771-3f40b0e2bdcf?w=500"]
+  },
+  {
+    id: 402, sku: "AIR-PHI5000", nombre: "Aire Acondicionado Inverter Philco 5000W Frío/Calor", marca: "Philco", modelo: "PHIN50HA3BN", categoria: "Aires Acondicionados",
+    descripcion: "Tecnología Inverter para un ahorro energético de hasta 35%, refrigerante R32 ecológico y funcionamiento ultra silencioso.",
+    especificaciones: { capacidad: "4300 Frigorías (5000W)", tecnologia: "Inverter", eficiencia: "Clase A++" },
+    precioOferta: 980000, stock: true, imagenes: ["https://images.unsplash.com/photo-1625961332771-3f40b0e2bdcf?w=500"]
+  },
+  {
+    id: 403, sku: "AIR-SURPORT", nombre: "Aire Acondicionado Portátil Surrey 3000 Frigorías", marca: "Surrey", modelo: "551KDF1201F", categoria: "Aires Acondicionados",
+    descripcion: "Solución móvil sin requerir instalación fija. Incluye kit de ventana completo, control remoto multifunción y encendido programable.",
+    especificaciones: { capacidad: "3000 Frigorías", movilidad: "Ruedas multidireccionales", kit: "Incluye kit ventana" },
+    precioOferta: 590000, stock: true, imagenes: ["https://images.unsplash.com/photo-1625961332771-3f40b0e2bdcf?w=500"]
+  },
+
+  // 5. HELADERAS Y FREEZERS
+  {
+    id: 501, sku: "HEL-WRE57", nombre: "Heladera No Frost Whirlpool 375L Inverter WRE57CC", marca: "Whirlpool", modelo: "WRE57CC", categoria: "Heladeras y Freezers",
+    descripcion: "Diseño Inverse (freezer abajo), sistema No Frost que no genera escarcha, tecnología Inverter para menor consumo energético y espacio FlexiSpace.",
+    especificaciones: { capacidad: "375 Litros", sistema: "No Frost Inverter", disposicion: "Combi / Inverse" },
+    precioOferta: 1120000, stock: true, imagenes: ["https://images.unsplash.com/photo-1584622650111-993a426fbf0a?w=500"]
+  },
+  {
+    id: 502, sku: "HEL-HPK135", nombre: "Heladera con Freezer Patrick 277L Cíclica HPK135M", marca: "Patrick", modelo: "HPK135M", categoria: "Heladeras y Freezers",
+    descripcion: "Compacta, altamente eficiente y duradera. Estantes regulables de alta resistencia, crisper para frutas y verduras y congelador de rápida congelación.",
+    especificaciones: { capacidad: "277 Litros", sistema: "Cíclica", eficiencia: "Clase A" },
+    precioOferta: 580000, stock: true, imagenes: ["https://images.unsplash.com/photo-1571175443880-49e1d25b2bc5?w=500"]
+  },
+  {
+    id: 503, sku: "FRE-GAF280", nombre: "Freezer Horizontal Gafa 280L Eternium Inverter", marca: "Gafa", modelo: "FGHI300B", categoria: "Heladeras y Freezers",
+    descripcion: "4 funciones en 1 (Freezer, Cervezero, Conservador, Enfriador). Chapa interior Eternium anticorrosión y motor Inverter de consumo ultrabajo.",
+    especificaciones: { capacidad: "280 Litros", funciones: "4 Modos de frío", eficiencia: "Clase A+" },
+    precioOferta: 640000, stock: true, imagenes: ["https://images.unsplash.com/photo-1584622650111-993a426fbf0a?w=500"]
+  },
+
+  // 6. COCINAS Y HORNOS
+  {
+    id: 601, sku: "COC-ESC56", nombre: "Cocina a Gas Escorial Master Classic 56cm Inox", marca: "Escorial", modelo: "Master Classic", categoria: "Cocinas y Hornos",
+    descripcion: "Cuatro hornallas de alta eficiencia, puerta de horno con doble vidrio templado para conservar el calor, enlozado de fácil limpieza y rejillas de fundición.",
+    especificaciones: { ancho: "56 cm", combustible: "Gas Natural / Envasado", seguridad: "Válvula de seguridad" },
+    precioOferta: 340000, stock: true, imagenes: ["https://images.unsplash.com/photo-1556911220-e15b29be8c8f?w=500"]
+  },
+  {
+    id: 602, sku: "HOR-ATM60", nombre: "Horno Electrico Digital Atma 60L Conveccion", marca: "Atma", modelo: "HG6020E", categoria: "Cocinas y Hornos",
+    descripcion: "Gran capacidad de 60 litros, función convección para cocción uniforme, selector de temperatura hasta 250°C, timer programable y luz interior.",
+    especificaciones: { capacidad: "60 Litros", potencia: "2000W", funciones: "Convección, Grill, Tostado" },
+    precioOferta: 165000, stock: true, imagenes: ["https://images.unsplash.com/photo-1585659722983-3a675dabf23d?w=500"]
+  },
+  {
+    id: 603, sku: "ANA-LNG60", nombre: "Anafe Eléctrico Vitrocerámico Longvie 4 Hornallas", marca: "Longvie", modelo: "AV6040V", categoria: "Cocinas y Hornos",
+    descripcion: "Superficie de vidrio vitrocerámico de alta resistencia, comandos táctiles Touch Control, 9 niveles de potencia e indicador de calor residual.",
+    especificaciones: { zonas: "4 Zonas radiantes", comando: "Touch Control", medidas: "59 x 52 cm" },
+    precioOferta: 420000, stock: true, imagenes: ["https://images.unsplash.com/photo-1556911220-e15b29be8c8f?w=500"]
+  },
+
+  // 7. LAVARROPAS Y SECADORAS
+  {
+    id: 701, sku: "LAV-DRE814", nombre: "Lavarropas Automático Drean Next 8.14 Eco Inverter 8kg", marca: "Drean", modelo: "Next 8.14 Eco", categoria: "Lavarropas y Secadoras",
+    descripcion: "Carga frontal con capacidad de 8kg y 1400 RPM de centrifugado. Motor EcoInverter ultrasilencioso y ahorro de energía A+++.",
+    especificaciones: { capacidad: "8 kg", centrifugado: "1400 RPM", eficiencia: "A+++" },
+    precioOferta: 790000, stock: true, imagenes: ["https://images.unsplash.com/photo-1626806787461-102c1bfaaea1?w=500"]
+  },
+  {
+    id: 702, sku: "LAV-PHI7KG", nombre: "Lavarropas Carga Superior Philco 7kg PHLF071B", marca: "Philco", modelo: "PHLF071B", categoria: "Lavarropas y Secadoras",
+    descripcion: "Diseño compacto con tambor de acero inoxidable, 8 programas automáticos de lavado, tecnología Fuzzy Logic y filtro para pelusas.",
+    especificaciones: { capacidad: "7 kg", carga: "Superior", centrifugado: "750 RPM" },
+    precioOferta: 510000, stock: true, imagenes: ["https://images.unsplash.com/photo-1582735689369-4fe89db7114c?w=500"]
+  },
+  {
+    id: 703, sku: "SEC-COD6KG", nombre: "Secarropas por Calor Codini 6kg Carga Frontal", marca: "Codini", modelo: "SC-60", categoria: "Lavarropas y Secadoras",
+    descripcion: "Secado eficiente mediante aire caliente, tambor galvanizado con rotación bidireccional para evitar arrugas y 3 programas de secado.",
+    especificaciones: { capacidad: "6 kg", tipo: "Por Ventilación / Calor", programas: "Algodón, Sintético, Delicado" },
+    precioOferta: 380000, stock: true, imagenes: ["https://images.unsplash.com/photo-1626806787461-102c1bfaaea1?w=500"]
+  },
+
+  // 8. PEQUEÑOS ELECTRODOMÉSTICOS
+  {
+    id: 801, sku: "FRE-PHI9270", nombre: "Freidora de Aire Digital Philips XL 6.2L HD9270", marca: "Philips", modelo: "Airfryer XL HD9270", categoria: "Pequeños Electrodomésticos",
+    descripcion: "Cociná con hasta un 90% menos de grasa gracias a la tecnología Rapid Air. Pantalla táctil con 7 programas predefinidos y capacidad de 6.2 litros.",
+    especificaciones: { capacidad: "6.2 Litros (1.2 kg)", potencia: "2000W", panel: "Táctil Digital" },
+    precioOferta: 220000, stock: true, imagenes: ["https://images.unsplash.com/photo-1585515320310-259814833e62?w=500"]
+  },
+  {
+    id: 802, sku: "CAF-OSTLAT", nombre: "Cafetera Express Oster Prima Latte II Roja", marca: "Oster", modelo: "BVSTEM6601R", categoria: "Pequeños Electrodomésticos",
+    descripcion: "Bomba italiana de 19 bares de presión. Depósito de leche automático para preparar Espresso, Cappuccino y Latte con solo presionar un botón.",
+    especificaciones: { presion: "19 Bares", tanqueLeche: "300 ml extraíble", tanqueAgua: "1.5 Litros" },
+    precioOferta: 310000, stock: true, imagenes: ["https://images.unsplash.com/photo-1517668808822-9ebb02f2a0e6?w=500"]
+  },
+  {
+    id: 803, sku: "MIX-BRA5235", nombre: "Licuadora de Mano Mixer Braun Minipimer 5 750W", marca: "Braun", modelo: "MQ5235", categoria: "Pequeños Electrodomésticos",
+    descripcion: "Motor de 750W con 21 velocidades, tecnología PowerBell para picado anti-salpicaduras. Incluye vaso medidor, batidor de varillas y picadora de 500ml.",
+    especificaciones: { potencia: "750W", velocidades: "21 + Turbo", accesorios: "Picador 500ml, Batidor, Vaso" },
+    precioOferta: 95000, stock: true, imagenes: ["https://images.unsplash.com/photo-1570222094114-d054a817e56b?w=500"]
+  },
+
+  // 9. ASPIRADORAS
+  {
+    id: 901, sku: "ASP-XIAOMS10", nombre: "Aspiradora Robot Xiaomi Robot Vacuum S10", marca: "Xiaomi", modelo: "S10", categoria: "Aspiradoras",
+    descripcion: "Navegación láser LDS precisa, potencia de succión de 4000 Pa y función 2 en 1 (aspira y trapea). Mapeo inteligente controlado desde la app Mi Home.",
+    especificaciones: { succion: "4000 Pa", navegacion: "Láser LDS 360°", autonomia: "Hasta 130 min" },
+    precioOferta: 430000, stock: true, imagenes: ["https://images.unsplash.com/photo-1558317374-067fb5f30001?w=500"]
+  },
+  {
+    id: 902, sku: "ASP-SAN1800", nombre: "Aspiradora Sansei 1800W Sin Bolsa Filtro HEPA", marca: "Sansei", modelo: "ASP1810", categoria: "Aspiradoras",
+    descripcion: "Filtro HEPA lavable que retiene el 99.9% de los alérgenos. Tecnología ciclónica de alta potencia, depósito transparente lavable de 2L y cepillo de piso.",
+    especificaciones: { potencia: "1800W", filtro: "HEPA Lavable", capacidad: "2 Litros" },
+    precioOferta: 110000, stock: true, imagenes: ["https://images.unsplash.com/photo-1558317374-067fb5f30001?w=500"]
+  },
+  {
+    id: 903, sku: "ASP-LIL2IN1", nombre: "Aspiradora Inalámbrica Liliana Vertical 2 en 1", marca: "Liliana", modelo: "VP420", categoria: "Aspiradoras",
+    descripcion: "Se transforma de aspiradora vertical a aspiradora de mano en un click. Batería de Litio recargable de larga duración y luz LED frontal en el cepillo.",
+    especificaciones: { tipo: "Vertical e Inalámbrica 2 en 1", bateria: "Litio 22.2V", filtro: "HEPA" },
+    precioOferta: 145000, stock: true, imagenes: ["https://images.unsplash.com/photo-1558317374-067fb5f30001?w=500"]
+  },
+
+  // 10. TERMOTANQUES Y CALEFONES
+  {
+    id: 1001, sku: "TER-SEN85E", nombre: "Termotanque Eléctrico Señorial 85L Carga Inferior", marca: "Señorial", modelo: "TTS-85EAR", categoria: "Termotanques y Calefones",
+    descripcion: "Esmaltado vitrocerámico de alta durabilidad, aislado con poliuretano ecológico para máxima eficiencia térmica y resistencia de acero inoxidable.",
+    especificaciones: { capacidad: "85 Litros", tipo: "Eléctrico", recuperacion: "80 L/h" },
+    precioOferta: 295000, stock: true, imagenes: ["https://images.unsplash.com/photo-1585338107529-13afc5f02586?w=500"]
+  },
+  {
+    id: 1002, sku: "TER-RHE120G", nombre: "Termotanque a Gas Rheem 120L Carga Superior", marca: "Rheem", modelo: "APG120", categoria: "Termotanques y Calefones",
+    descripcion: "Tanque con proceso Bi-Capa de esmalte porcelanizado. Quemador de acero inoxidable y sensor de seguridad contra fuga de gases.",
+    especificaciones: { capacidad: "120 Litros", combustible: "Gas Natural / Envasado", recuperacion: "268 L/h" },
+    precioOferta: 480000, stock: true, imagenes: ["https://images.unsplash.com/photo-1585338107529-13afc5f02586?w=500"]
+  },
+  {
+    id: 1003, sku: "CAL-ORB14L", nombre: "Calefón a Gas Sin Piloto Orbis 14L Automático", marca: "Orbis", modelo: "314KBO", categoria: "Termotanques y Calefones",
+    descripcion: "Encendido automático sin llama piloto (ahorro permanente de gas). Modulante de potencia según el caudal de agua de la canilla.",
+    especificaciones: { caudal: "14 L/min", encendido: "Automático Ionizado", tiraje: "Natural" },
+    precioOferta: 390000, stock: true, imagenes: ["https://images.unsplash.com/photo-1585338107529-13afc5f02586?w=500"]
+  },
+
+  // 11. INFORMÁTICA
+  {
+    id: 1101, sku: "NOT-LENI5", nombre: "Notebook Lenovo IdeaPad 3 15.6\" Core i5 16GB 512GB SSD", marca: "Lenovo", modelo: "IdeaPad 3 15IAU7", categoria: "Informática",
+    descripcion: "Rendimiento fluido con procesador Intel Core i5 de 12da generación, 16GB RAM y almacenamiento rápido SSD NVMe. Ideal para trabajo y multitarea.",
+    especificaciones: { pantalla: "15.6\" FHD Antirreflejo", procesador: "Intel Core i5-1235U", ram: "16 GB DDR4", almacenamiento: "512 GB SSD" },
+    precioOferta: 850000, stock: true, imagenes: ["https://images.unsplash.com/photo-1588872657578-7efd1f1555ed?w=500"]
+  },
+  {
+    id: 1102, sku: "NOT-ASUCEL", nombre: "Notebook ASUS Vivobook Go 14 Celeron N4500 4GB 128GB", marca: "ASUS", modelo: "Vivobook Go E410", categoria: "Informática",
+    descripcion: "Ultra liviana y portatil. Pantalla FHD de 14 pulgadas, bisagra plana de 180° y autonomía de batería para acompañarte todo el día.",
+    especificaciones: { pantalla: "14\" Full HD", procesador: "Intel Celeron N4500", ram: "4 GB DDR4", almacenamiento: "128 GB eMMC" },
+    precioOferta: 390000, stock: true, imagenes: ["https://images.unsplash.com/photo-1496181133206-80ce9b88a853?w=500"]
+  },
+  {
+    id: 1103, sku: "IMP-HPS580", nombre: "Impresora Multifunción HP Smart Tank 580 Wi-Fi", marca: "HP", modelo: "Smart Tank 580", categoria: "Informática",
+    descripcion: "Impresión de altísimo rendimiento con costo por página súper bajo. Conexión Wi-Fi autorreparable y escáner de alta resolución.",
+    especificaciones: { tecnologia: "Sistema Continuo de Tinta", conectividad: "Wi-Fi, USB, App Mobile", rendimiento: "Hasta 8000 pág. color" },
+    precioOferta: 290000, stock: true, imagenes: ["https://images.unsplash.com/photo-1612815154858-60aa4c59eaa6?w=500"]
+  },
+
+  // 12. AUDIO
+  {
+    id: 1201, sku: "PAR-JBLF6", nombre: "Parlante Portátil Bluetooth JBL Flip 6 20W Sumergible", marca: "JBL", modelo: "Flip 6", categoria: "Audio",
+    descripcion: "Sonido potente y graves profundos en un formato compacto. Certificación IP67 resistente al agua y al polvo con hasta 12 horas de reproducción.",
+    especificaciones: { potencia: "20W RMS", proteccion: "IP67 (Sumergible)", autonomia: "Hasta 12 horas" },
+    precioOferta: 185000, stock: true, imagenes: ["https://images.unsplash.com/photo-1608043152269-423dbba4e7e1?w=500"]
+  },
+  {
+    id: 1202, sku: "AUR-SONCH520", nombre: "Auriculares Inalámbricos Sony WH-CH520 Bluetooth 50hs", marca: "Sony", modelo: "WH-CH520", categoria: "Audio",
+    descripcion: "Comodidad para todo el día con hasta 50 horas de autonomía, carga rápida, micrófono integrado para llamadas claras y conexión multipunto.",
+    especificaciones: { tipo: "On-Ear Inalámbricos", autonomia: "Hasta 50 Horas", carga: "USB-C Carga Rápida" },
+    precioOferta: 75000, stock: true, imagenes: ["https://images.unsplash.com/photo-1505740420928-5e560c06d30e?w=500"]
+  },
+  {
+    id: 1203, sku: "TOR-STRBANG", nombre: "Torre de Sonido Stromberg Bang 100W Bluetooth", marca: "Stromberg", modelo: "Bang", categoria: "Audio",
+    descripcion: "Ideal para fiestas con woofer de 8 pulgadas, luces LED rítmicas, entrada para micrófono y batería interna para llevar la música donde quieras.",
+    especificaciones: { potencia: "100W RMS", bateria: "Recargable interna", conectividad: "Bluetooth, Aux, USB, Mic" },
+    precioOferta: 160000, stock: true, imagenes: ["https://images.unsplash.com/photo-1545454675-3531b543be5d?w=500"]
+  },
+
+  // 13. ACCESORIOS
+  {
+    id: 1301, sku: "ACC-ANK20K", nombre: "Power Bank Batería Portátil Anker 20000mAh 15W", marca: "Anker", modelo: "PowerCore 20K", categoria: "Accesorios",
+    descripcion: "Carga rápida portátil con capacidad para cargar un smartphone entre 4 y 5 veces. Entradas y salidas USB-A y USB-C con protección MultiProtect.",
+    especificaciones: { capacidad: "20.000 mAh", puertos: "2 USB-A + 1 USB-C", carga: "PowerIQ 15W" },
+    precioOferta: 68000, stock: true, imagenes: ["https://images.unsplash.com/photo-1609592424109-dd9892f1b177?w=500"]
+  },
+  {
+    id: 1302, sku: "ACC-SAM25W", nombre: "Cargador Rápido de Pared Samsung 25W USB-C", marca: "Samsung", modelo: "EP-TA800", categoria: "Accesorios",
+    descripcion: "Cargador original Samsung con tecnología Power Delivery 3.0 para brindar una carga segura y ultra rápida a smartphones y tablets.",
+    especificaciones: { potencia: "25W max.", puerto: "USB Type-C", tecnologia: "Power Delivery 3.0" },
+    precioOferta: 28000, stock: true, imagenes: ["https://images.unsplash.com/photo-1583863788434-e58a36330cf0?w=500"]
+  },
+  {
+    id: 1303, sku: "ACC-SOPALU", nombre: "Soporte de Escritorio para Laptop Regulable Aluminio", marca: "Nova Tech", modelo: "Stand-AluPro", categoria: "Accesorios",
+    descripcion: "Fabricado en aleación de aluminio premium, plegable y con 6 niveles de inclinación para mejorar la postura y la disipación de calor del equipo.",
+    especificaciones: { material: "Aluminio de aviación", ajuste: "6 Niveles de altura", compatibilidad: "Laptops 10 a 17.3\"" },
+    precioOferta: 22000, stock: true, imagenes: ["https://images.unsplash.com/photo-1527864550417-7fd91fc51a46?w=500"]
+  }
+];
+
+// =========================================================================
+// LOGICA DE LA APLICACIÓN
+// =========================================================================
+const tarifasProvincias = {
+    "CABA": { costo: 8500, demora: "12 a 24 hs", nombre: "CABA" },
+    "Buenos Aires": { costo: 12500, demora: "24 a 48 hs", nombre: "Buenos Aires" },
+    "Provincias": { costo: 18500, demora: "3 a 6 días hábiles", nombre: "Otras Provincias" }
+};
+
+const PRODUCTOS_POR_PAGINA = 12;
+const NUMERO_WHATSAPP = "5491139349492";
+
+let carrito = JSON.parse(localStorage.getItem('logistica_nova_carrito')) || [];
+let vistaActual = 'carrito';
+let metodoPagoGlobal = 'transferencia';
+let cuotasGlobal = 1;
+let categoriaSeleccionada = 'Todas';
+let textoBusqueda = '';
+let criterioOrden = 'recientes';
+let localidadSeleccionadaGlobal = 'CABA';
+let paginaActual = 1;
+
+function mostrarToast(mensaje) {
+    const container = document.getElementById('toastContainer');
+    if (!container) return;
+    const toast = document.createElement('div');
+    toast.className = 'toast';
+    toast.innerHTML = `<span>✓</span> ${escaparHTML(mensaje)}`;
+    container.appendChild(toast);
+    setTimeout(() => { toast.remove(); }, 3000);
+}
+
+function formatearMoneda(valor) {
+    return new Intl.NumberFormat('es-AR', { style: 'currency', currency: 'ARS', maximumFractionDigits: 0 }).format(Number(valor) || 0);
+}
+
+function generarCodigoSeguimiento() {
+    const numero = Math.floor(1000000 + Math.random() * 9000000);
+    return `NV-${numero}`;
+}
+
+function guardarCarritoStorage() {
+    localStorage.setItem('logistica_nova_carrito', JSON.stringify(carrito));
+}
+
+function guardarDatosClienteStorage() {
+    const datosCliente = {
+        nombre: document.getElementById('nombreCliente')?.value.trim() || '',
+        tel: document.getElementById('telCliente')?.value.trim() || '',
+        email: document.getElementById('emailCliente')?.value.trim() || '',
+        dir: document.getElementById('dirCliente')?.value.trim() || '',
+        ciudad: document.getElementById('ciudadCliente')?.value.trim() || '',
+        cp: document.getElementById('cpCliente')?.value.trim() || '',
+        zona: document.getElementById('localidadEnvioSelect')?.value || 'CABA',
+        obs: document.getElementById('obsCliente')?.value.trim() || ''
+    };
+    localStorage.setItem('logistica_nova_cliente', JSON.stringify(datosCliente));
+}
+
+function cargarDatosClienteStorage() {
+    const guardados = JSON.parse(localStorage.getItem('logistica_nova_cliente'));
+    if (!guardados) return;
+
+    if (document.getElementById('nombreCliente')) document.getElementById('nombreCliente').value = guardados.nombre || '';
+    if (document.getElementById('telCliente')) document.getElementById('telCliente').value = guardados.tel || '';
+    if (document.getElementById('emailCliente')) document.getElementById('emailCliente').value = guardados.email || '';
+    if (document.getElementById('dirCliente')) document.getElementById('dirCliente').value = guardados.dir || '';
+    if (document.getElementById('ciudadCliente')) document.getElementById('ciudadCliente').value = guardados.ciudad || '';
+    if (document.getElementById('cpCliente')) document.getElementById('cpCliente').value = guardados.cp || '';
+    if (document.getElementById('obsCliente')) document.getElementById('obsCliente').value = guardados.obs || '';
+    
+    if (guardados.zona && document.getElementById('localidadEnvioSelect')) {
+        document.getElementById('localidadEnvioSelect').value = guardados.zona;
+        localidadSeleccionadaGlobal = guardados.zona;
+    }
+}
+
+function escaparHTML(valor) {
+    return String(valor ?? '').replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;').replace(/'/g, '&#039;');
+}
+
+function escaparJS(valor) {
+    return String(valor ?? '').replace(/\\/g, '\\\\').replace(/'/g, "\\'").replace(/\r/g, '\\r').replace(/\n/g, '\\n');
+}
+
+function recortarTextoLimpio(texto, limite) {
+    const contenido = String(texto || '');
+    if (contenido.length <= limite) return contenido;
+    const sub = contenido.substring(0, limite);
+    const ultimoEspacio = sub.lastIndexOf(' ');
+    if (ultimoEspacio > 20) return sub.substring(0, ultimoEspacio) + '...';
+    return sub + '...';
+}
+
+window.buscarProductos = function() {
+    textoBusqueda = document.getElementById('searchInput').value.toLowerCase().trim();
+    paginaActual = 1;
+    renderizarProductos();
+};
+
+window.ordenarProductos = function() {
+    const select = document.getElementById('sortSelect');
+    if (select) criterioOrden = select.value;
+    paginaActual = 1;
+    renderizarProductos();
+};
+
+window.filtrarCategoria = function(categoria, botonElemento) {
+    categoriaSeleccionada = categoria;
+    paginaActual = 1;
+    document.querySelectorAll('.filter-btn').forEach(btn => btn.classList.remove('active'));
+    if (botonElemento) botonElemento.classList.add('active');
+    renderizarProductos();
+};
+
+window.cambiarImagenMiniatura = function(productoId, srcImagen, elementoThumbnail) {
+    const imagenPrincipal = document.getElementById(`mainImage-${productoId}`);
+    if (imagenPrincipal) {
+        imagenPrincipal.src = srcImagen;
+        imagenPrincipal.style.display = 'block';
+    }
+    if (elementoThumbnail && elementoThumbnail.parentElement) {
+        elementoThumbnail.parentElement.querySelectorAll('.thumbnail').forEach(thumb => thumb.classList.remove('active'));
+        elementoThumbnail.classList.add('active');
+    }
+};
+
+window.abrirLightbox = function(src) {
+    const modal = document.getElementById('lightboxModal');
+    const img = document.getElementById('lightboxImg');
+    if (!modal || !img || !src) return;
+    img.src = src;
+    modal.classList.add('active');
+};
+
+window.cerrarLightbox = function(event) {
+    if (!event || event.target.id === 'lightboxModal' || event.target.classList.contains('lightbox-close')) {
+        const modal = document.getElementById('lightboxModal');
+        if (modal) modal.classList.remove('active');
+    }
+};
+
+window.alternarDescripcion = function(id, descripcionCompleta) {
+    const textoElemento = document.getElementById(`descripcion-${id}`);
+    const boton = document.getElementById(`verMas-${id}`);
+    if (!textoElemento || !boton) return;
+    const estaExpandido = boton.getAttribute('data-expandido') === 'true';
+    if (estaExpandido) {
+        textoElemento.innerText = recortarTextoLimpio(descripcionCompleta, 50);
+        boton.innerText = 'Ver más';
+        boton.setAttribute('data-expandido', 'false');
+    } else {
+        textoElemento.innerText = descripcionCompleta;
+        boton.innerText = 'Ver menos';
+        boton.setAttribute('data-expandido', 'true');
+    }
+};
+
+function renderizarProductos() {
+    const gridContainer = document.getElementById('gridProductos');
+    const paginacionContainer = document.getElementById('paginacion');
+    if (!gridContainer || !paginacionContainer) return;
+
+    gridContainer.innerHTML = '';
+    paginacionContainer.innerHTML = '';
+
+    let productosFiltrados = categoriaSeleccionada === 'Todas' ? [...productos] : productos.filter(p => String(p.categoria || '').toLowerCase().trim() === String(categoriaSeleccionada).toLowerCase().trim());
+
+    if (textoBusqueda !== '') {
+        productosFiltrados = productosFiltrados.filter(producto => {
+            const nombre = String(producto.nombre || '').toLowerCase();
+            const marca = String(producto.marca || '').toLowerCase();
+            const modelo = String(producto.modelo || '').toLowerCase();
+            const descripcion = String(producto.descripcion || '').toLowerCase();
+            return nombre.includes(textoBusqueda) || marca.includes(textoBusqueda) || modelo.includes(textoBusqueda) || descripcion.includes(textoBusqueda);
+        });
+    }
+
+    if (criterioOrden === 'menor-precio') {
+        productosFiltrados.sort((a, b) => (Number(a.precioOferta) || 0) - (Number(b.precioOferta) || 0));
+    } else if (criterioOrden === 'mayor-precio') {
+        productosFiltrados.sort((a, b) => (Number(b.precioOferta) || 0) - (Number(a.precioOferta) || 0));
+    } else if (criterioOrden === 'az') {
+        productosFiltrados.sort((a, b) => String(a.nombre || '').localeCompare(String(b.nombre || '')));
+    }
+
+    if (productosFiltrados.length === 0) {
+        gridContainer.innerHTML = `<div style="grid-column:1/-1; text-align:center; color:var(--text-muted); padding:30px;">No se encontraron productos que coincidan con la búsqueda.</div>`;
+        return;
+    }
+
+    const totalPaginas = Math.ceil(productosFiltrados.length / PRODUCTOS_POR_PAGINA);
+    if (paginaActual > totalPaginas) paginaActual = totalPaginas;
+    if (paginaActual < 1) paginaActual = 1;
+
+    const inicio = (paginaActual - 1) * PRODUCTOS_POR_PAGINA;
+    const productosPagina = productosFiltrados.slice(inicio, inicio + PRODUCTOS_POR_PAGINA);
+
+    productosPagina.forEach(producto => {
+        let specsHTML = '';
+        if (producto.especificaciones && typeof producto.especificaciones === 'object') {
+            for (const [key, value] of Object.entries(producto.especificaciones)) {
+                const etiqueta = key.replace(/([A-Z])/g, ' $1').replace(/^./, letra => letra.toUpperCase());
+                specsHTML += `<div><span class="spec-label">${escaparHTML(etiqueta)}:</span><span class="spec-value">${escaparHTML(value)}</span></div>`;
+            }
+        }
+
+        const imagenes = Array.isArray(producto.imagenes) ? producto.imagenes.filter(img => img && String(img).trim() !== '').slice(0, 5) : [];
+        const imagenPrincipalInicial = imagenes.length > 0 ? imagenes[0] : '';
+        
+        let thumbnailsConZoomHTML = '';
+        imagenes.forEach((imgSrc, index) => {
+            thumbnailsConZoomHTML += `
+                <div style="position:relative; flex-shrink:0;">
+                    <img src="${escaparHTML(imgSrc)}" alt="${escaparHTML(producto.nombre)}" class="thumbnail ${index === 0 ? 'active' : ''}" onclick="cambiarImagenMiniatura(${producto.id}, '${escaparJS(imgSrc)}', this)" onerror="this.style.display='none'">
+                    <span style="position:absolute; bottom:2px; right:2px; background:rgba(0,0,0,0.6); color:white; font-size:9px; padding:1px 3px; border-radius:3px; cursor:pointer;" onclick="abrirLightbox('${escaparJS(imgSrc)}')">🔍</span>
+                </div>`;
+        });
+
+        const descripcion = String(producto.descripcion || '');
+        const superaLimite = descripcion.length > 50;
+        const descripcionInicial = recortarTextoLimpio(descripcion, 50);
+
+        const card = document.createElement('div');
+        card.className = 'card';
+        card.innerHTML = `
+            ${producto.stock ? `<span class="badge-stock">✓ Stock</span>` : ''}
+            <div class="product-gallery-container">
+                <div class="main-image-container" onclick="abrirLightbox(document.getElementById('mainImage-${producto.id}').src)">
+                    ${imagenPrincipalInicial ? `<img id="mainImage-${producto.id}" src="${escaparHTML(imagenPrincipalInicial)}" alt="${escaparHTML(producto.nombre)}" loading="lazy" onerror="this.style.display='none';">` : `<span style="color:var(--text-muted); font-size:0.8rem;">Imagen no disponible</span>`}
+                </div>
+                <div class="thumbnails-container">${thumbnailsConZoomHTML}</div>
+            </div>
+            <div class="card-body">
+                <span class="card-category">${escaparHTML(producto.marca)} · ${escaparHTML(producto.categoria)}</span>
+                <h3 class="card-title">${escaparHTML(producto.nombre)}</h3>
+                <p class="card-desc">
+                    <span id="descripcion-${producto.id}">${escaparHTML(descripcionInicial)}</span>
+                    ${superaLimite ? `<button id="verMas-${producto.id}" class="ver-mas-btn" data-expandido="false" onclick="alternarDescripcion(${producto.id}, '${escaparJS(descripcion)}')">Ver más</button>` : ''}
+                </p>
+                <div class="specs-list">${specsHTML}</div>
+                <div class="pricing">
+                    <div class="price-container"><span class="price-offer">${formatearMoneda(producto.precioOferta)}</span></div>
+                    <div class="cuotas-badge">⚡ Abonando por transferencia 15% OFF</div>
+                    <button class="btn-add-cart" onclick="agregarAlCarrito(${producto.id})">Agregar al Carrito</button>
+                </div>
+            </div>
+        `;
+        gridContainer.appendChild(card);
+    });
+
+    if (totalPaginas > 1) {
+        for (let i = 1; i <= totalPaginas; i++) {
+            const btn = document.createElement('button');
+            btn.innerText = i;
+            if (i === paginaActual) btn.classList.add('active');
+            btn.onclick = () => {
+                paginaActual = i;
+                renderizarProductos();
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+            };
+            paginacionContainer.appendChild(btn);
+        }
+    }
+}
+
+window.agregarAlCarrito = function(id) {
+    const producto = productos.find(p => p.id === id);
+    if (!producto) return;
+    const itemExistente = carrito.find(item => item.id === id);
+    if (itemExistente) {
+        itemExistente.cantidad++;
+    } else {
+        carrito.push({ ...producto, cantidad: 1 });
+    }
+    actualizarContadorCarrito();
+    guardarCarritoStorage();
+    
+    const cartBtn = document.getElementById('cartBtnMain');
+    if (cartBtn) {
+        cartBtn.classList.add('bounce');
+        setTimeout(() => cartBtn.classList.remove('bounce'), 400);
+    }
+
+    mostrarToast(`¡Agregado al carrito: ${producto.nombre}!`);
+    vistaActual = 'carrito';
+    window.toggleCart(true);
+};
+
+window.cambiarCantidad = function(id, cambio) {
+    const item = carrito.find(i => i.id === id);
+    if (item) {
+        item.cantidad += cambio;
+        if (item.cantidad <= 0) carrito = carrito.filter(i => i.id !== id);
+    }
+    actualizarContadorCarrito();
+    guardarCarritoStorage();
+    renderizarContenidoDrawer();
+};
+
+window.eliminarDelCarrito = function(id) {
+    carrito = carrito.filter(i => i.id !== id);
+    actualizarContadorCarrito();
+    guardarCarritoStorage();
+    renderizarContenidoDrawer();
+    mostrarToast("Producto eliminado del carrito");
+};
+
+function actualizarContadorCarrito() {
+    const totalItems = carrito.reduce((sum, item) => sum + (Number(item.cantidad) || 0), 0);
+    const contador = document.getElementById('cartCount');
+    if (contador) contador.innerText = totalItems;
+}
+
+window.toggleCart = function(forceOpen = false) {
+    const modal = document.getElementById('cartModal');
+    if (!modal) return;
+    if (forceOpen) {
+        modal.classList.add('active');
+    } else {
+        modal.classList.toggle('active');
+        if (!modal.classList.contains('active')) vistaActual = 'carrito';
+    }
+    renderizarContenidoDrawer();
+    if (vistaActual === 'formulario') {
+        cargarDatosClienteStorage();
+    }
+};
+
+window.handleOutsideClick = function(event) {
+    if (event.target.id === 'cartModal') window.toggleCart();
+};
+
+window.onPaymentMethodChange = function() {
+    const select = document.getElementById('paymentMethodSelect');
+    if (!select) return;
+    metodoPagoGlobal = select.value;
+    cuotasGlobal = 1;
+    renderizarContenidoDrawer();
+};
+
+window.onCuotasChange = function() {
+    const select = document.getElementById('cuotasSelect');
+    if (select) cuotasGlobal = parseInt(select.value) || 1;
+    renderizarContenidoDrawer();
+};
+
+window.onLocalidadSelectChange = function() {
+    const select = document.getElementById('localidadEnvioSelect');
+    if (select) localidadSeleccionadaGlobal = select.value;
+    guardarDatosClienteStorage();
+    renderizarContenidoDrawer();
+};
+
+function calcularTotales() {
+    const subtotal = carrito.reduce((sum, item) => sum + (Number(item.precioOferta) || 0) * (Number(item.cantidad) || 0), 0);
+    let descuento = 0;
+    let recargoTotal = 0;
+    let total = subtotal;
+
+    if (metodoPagoGlobal === 'transferencia') {
+        descuento = subtotal * 0.15;
+        total = subtotal - descuento;
+    } else if (metodoPagoGlobal === 'creditoDni' || metodoPagoGlobal === 'tarjetaCredito') {
+        const porcentajeBase = metodoPagoGlobal === 'creditoDni' ? 0.04 : 0.06;
+        recargoTotal = subtotal * (porcentajeBase * cuotasGlobal);
+        total = subtotal + recargoTotal;
+    }
+
+    const costoEnvio = tarifasProvincias[localidadSeleccionadaGlobal]?.costo || 0;
+    total += costoEnvio;
+    const valorCuota = cuotasGlobal > 0 ? total / cuotasGlobal : total;
+
+    return { subtotal, descuento, recargoTotal, costoEnvio, total, valorCuota };
+}
+
+function renderizarContenidoDrawer() {
+    const bodyContent = document.getElementById('cartBodyContent');
+    const drawerTitle = document.getElementById('drawerTitle');
+    if (!bodyContent) return;
+
+    if (carrito.length === 0) {
+        if (drawerTitle) drawerTitle.innerText = "Tu Carrito de Compras";
+        bodyContent.innerHTML = `
+            <div class="empty-cart">
+                <p>Tu carrito está vacío.</p>
+                <button class="cart-btn" style="margin:20px auto;" onclick="toggleCart()">Ver Catálogo</button>
+            </div>
+        `;
+        return;
+    }
+
+    if (vistaActual === 'carrito') {
+        if (drawerTitle) drawerTitle.innerText = "Tu Carrito de Compras";
+        let itemsHTML = '';
+        carrito.forEach(item => {
+            itemsHTML += `
+                <div class="cart-item">
+                    <div class="cart-item-info">
+                        <h4>${escaparHTML(item.nombre)}</h4>
+                        <div class="cart-item-price">${formatearMoneda(item.precioOferta)} x ${item.cantidad}</div>
+                    </div>
+                    <div class="cart-item-actions">
+                        <button class="qty-btn" onclick="cambiarCantidad(${item.id}, -1)">-</button>
+                        <span>${item.cantidad}</span>
+                        <button class="qty-btn" onclick="cambiarCantidad(${item.id}, 1)">+</button>
+                        <button class="remove-btn" onclick="eliminarDelCarrito(${item.id})">🗑️</button>
+                    </div>
+                </div>
+            `;
+        });
+
+        const { subtotal, descuento, recargoTotal, costoEnvio, total, valorCuota } = calcularTotales();
+        let opcionesCuotasHTML = '';
+        if (metodoPagoGlobal === 'creditoDni' || metodoPagoGlobal === 'tarjetaCredito') {
+            [1, 3, 6, 9, 12].forEach(c => {
+                opcionesCuotasHTML += `<option value="${c}" ${cuotasGlobal === c ? 'selected' : ''}>${c} ${c === 1 ? 'Pago' : 'Pagos'}</option>`;
+            });
+        }
+
+        bodyContent.innerHTML = `
+            <div style="margin-bottom:15px;">${itemsHTML}</div>
+            <div class="payment-methods" style="margin-top:15px;">
+                <label style="font-size:0.8rem; font-weight:600; margin-bottom:4px; display:block;">Método de Pago:</label>
+                <select id="paymentMethodSelect" class="payment-select" onchange="onPaymentMethodChange()">
+                    <option value="transferencia" ${metodoPagoGlobal === 'transferencia' ? 'selected' : ''}>Transferencia Bancaria (15% OFF)</option>
+                    <option value="creditoDni" ${metodoPagoGlobal === 'creditoDni' ? 'selected' : ''}>Cuenta DNI</option>
+                    <option value="tarjetaCredito" ${metodoPagoGlobal === 'tarjetaCredito' ? 'selected' : ''}>Tarjeta de Crédito</option>
+                </select>
+            </div>
+            ${metodoPagoGlobal === 'creditoDni' || metodoPagoGlobal === 'tarjetaCredito' ? `
+                <div class="form-group" style="margin-top:10px;">
+                    <label>Cantidad de Pagos (Cuotas):</label>
+                    <select id="cuotasSelect" class="payment-select" onchange="onCuotasChange()">${opcionesCuotasHTML}</select>
+                </div>
+            ` : ''}
+            <div class="form-group" style="margin-top:10px;">
+                <label>Zona de Destino / Envío:</label>
+                <select id="localidadEnvioSelect" class="payment-select" onchange="onLocalidadSelectChange()">
+                    <option value="CABA" ${localidadSeleccionadaGlobal === 'CABA' ? 'selected' : ''}>CABA ($8.500 - 12 a 24 hs)</option>
+                    <option value="Buenos Aires" ${localidadSeleccionadaGlobal === 'Buenos Aires' ? 'selected' : ''}>Buenos Aires ($12.500 - 24 a 48 hs)</option>
+                    <option value="Provincias" ${localidadSeleccionadaGlobal === 'Provincias' ? 'selected' : ''}>Otras Provincias ($18.500 - 3 a 6 días)</option>
+                </select>
+            </div>
+            <div style="border-top:1px solid var(--border-color); padding-top:12px; margin-top:15px;">
+                <div class="cart-summary-line"><span>Subtotal productos:</span><span>${formatearMoneda(subtotal)}</span></div>
+                ${descuento > 0 ? `<div class="cart-summary-line" style="color:var(--success-dark)"><span>Descuento Transferencia (15%):</span><span>-${formatearMoneda(descuento)}</span></div>` : ''}
+                ${recargoTotal > 0 ? `<div class="cart-summary-line" style="color:var(--accent-color)"><span>Recargo Financiamiento:</span><span>+${formatearMoneda(recargoTotal)}</span></div>` : ''}
+                <div class="cart-summary-line"><span>Envío (${tarifasProvincias[localidadSeleccionadaGlobal]?.nombre || ''}):</span><span>${formatearMoneda(costoEnvio)}</span></div>
+                <div class="cart-total"><span>Total:</span><span>${formatearMoneda(total)}</span></div>
+                ${cuotasGlobal > 1 ? `<div style="font-size:0.8rem; color:#1e40af; background:#eff6ff; padding:8px; border-radius:6px; margin-bottom:10px;">Pagás en <strong>${cuotasGlobal} pagos</strong> de <strong>${formatearMoneda(valorCuota)}</strong></div>` : ''}
+            </div>
+            <button class="checkout-btn" style="margin-top:15px;" onclick="window.cambiarAVistaFormulario()">Continuar con Datos</button>
+        `;
+    } else if (vistaActual === 'formulario') {
+        if (drawerTitle) drawerTitle.innerText = "Datos Personales y Envío";
+        bodyContent.innerHTML = `
+            <form id="orderForm" onsubmit="window.enviarOrdenWhatsApp(event)">
+                <div class="form-group"><label>Nombre y Apellido *</label><input type="text" id="nombreCliente" required placeholder="Ej. Juan Pérez" oninput="guardarDatosClienteStorage()"></div>
+                <div class="form-group"><label>Teléfono / WhatsApp *</label><input type="tel" id="telCliente" required placeholder="Ej. 1123456789" oninput="guardarDatosClienteStorage()"></div>
+                <div class="form-group"><label>Correo Electrónico</label><input type="email" id="emailCliente" placeholder="correo@ejemplo.com" oninput="guardarDatosClienteStorage()"></div>
+                <div class="form-group"><label>Dirección de Entrega *</label><input type="text" id="dirCliente" required placeholder="Av. Corrientes 1234" oninput="guardarDatosClienteStorage()"></div>
+                <div class="inline-group">
+                    <div class="form-group"><label>Localidad *</label><input type="text" id="ciudadCliente" required placeholder="Ej. Mar del Plata" oninput="guardarDatosClienteStorage()"></div>
+                    <div class="form-group"><label>Cód. Postal *</label><input type="text" id="cpCliente" required placeholder="Ej. 7600" oninput="guardarDatosClienteStorage()"></div>
+                </div>
+                <div class="form-group">
+                    <label>Zona de Destino / Envío *</label>
+                    <select id="localidadEnvioSelect" class="payment-select" onchange="onLocalidadSelectChange()">
+                        <option value="CABA" ${localidadSeleccionadaGlobal === 'CABA' ? 'selected' : ''}>CABA ($8.500 - 12 a 24 hs)</option>
+                        <option value="Buenos Aires" ${localidadSeleccionadaGlobal === 'Buenos Aires' ? 'selected' : ''}>Buenos Aires ($12.500 - 24 a 48 hs)</option>
+                        <option value="Provincias" ${localidadSeleccionadaGlobal === 'Provincias' ? 'selected' : ''}>Otras Provincias ($18.500 - 3 a 6 días)</option>
+                    </select>
+                </div>
+                <div class="form-group"><label>Observaciones</label><textarea id="obsCliente" rows="2" placeholder="Comentarios..." oninput="guardarDatosClienteStorage()"></textarea></div>
+                <div class="form-buttons">
+                    <button type="button" class="btn-back" onclick="window.cambiarAVistaCarrito()">Volver</button>
+                    <button type="submit" class="btn-submit-order">💬 Elegir WhatsApp</button>
+                </div>
+                <div class="whatsapp-box">
+                    <div class="whatsapp-title">📲 ¿Cómo querés enviar tu pedido?</div>
+                    <div class="whatsapp-subtitle">Primero se generará automáticamente tu código de seguimiento.</div>
+                    <div class="whatsapp-options">
+                        <button type="button" class="whatsapp-option btn-whatsapp" onclick="window.enviarOrdenWhatsApp(event, 'whatsapp')">💬 WhatsApp</button>
+                        <button type="button" class="whatsapp-option btn-business" onclick="window.enviarOrdenWhatsApp(event, 'business')">🟢 WhatsApp Business</button>
+                        <button type="button" class="whatsapp-option btn-web" onclick="window.enviarOrdenWhatsApp(event, 'web')">💻 WhatsApp Web / PC</button>
+                    </div>
+                </div>
+            </form>
+        `;
+        cargarDatosClienteStorage();
+    }
+}
+
+window.cambiarAVistaFormulario = function() {
+    vistaActual = 'formulario';
+    renderizarContenidoDrawer();
+};
+
+window.cambiarAVistaCarrito = function() {
+    vistaActual = 'carrito';
+    renderizarContenidoDrawer();
+};
+
+window.enviarOrdenWhatsApp = function(event, destino = 'whatsapp') {
+    if (event) event.preventDefault();
+    const form = document.getElementById('orderForm');
+    if (form && !form.checkValidity()) {
+        form.reportValidity();
+        return;
+    }
+    if (carrito.length === 0) {
+        mostrarToast('El carrito está vacío.');
+        return;
+    }
+
+    const codigoSeguimiento = generarCodigoSeguimiento();
+    const nombre = document.getElementById('nombreCliente').value.trim();
+    const tel = document.getElementById('telCliente').value.trim();
+    const email = document.getElementById('emailCliente').value.trim() || "No especificado";
+    const dir = document.getElementById('dirCliente').value.trim();
+    const ciudad = document.getElementById('ciudadCliente').value.trim();
+    const cp = document.getElementById('cpCliente').value.trim();
+    const obs = document.getElementById('obsCliente').value.trim() || "Ninguna";
+
+    const { subtotal, descuento, recargoTotal, costoEnvio, total, valorCuota } = calcularTotales();
+    const infoEnvio = tarifasProvincias[localidadSeleccionadaGlobal];
+
+    let detalleProductos = "";
+    carrito.forEach((item, index) => {
+        detalleProductos += `*${index + 1}.* ${item.nombre} (SKU: ${item.sku}) - Cant: ${item.cantidad} - Subtotal: ${formatearMoneda(item.precioOferta * item.cantidad)}\n`;
+    });
+
+    let textoMetodoPago = metodoPagoGlobal === 'transferencia' ? "Transferencia Bancaria (15% OFF)" : (metodoPagoGlobal === 'creditoDni' ? `Cuenta DNI (${cuotasGlobal} pagos)` : `Tarjeta de Crédito (${cuotasGlobal} pagos)`);
+
+    let mensaje = `📦 *NUEVA ORDEN DE COMPRA - NOVA ENVÍOS & CRÉDITOS*\n`;
+    mensaje += `🆔 *Código de seguimiento:* ${codigoSeguimiento}\n\n`;
+    mensaje += `👤 *CLIENTE*\n• Nombre: ${nombre}\n• Teléfono: ${tel}\n• Email: ${email}\n\n`;
+    mensaje += `📍 *ENVÍO*\n• Dirección: ${dir}, ${ciudad} (CP: ${cp})\n• Zona: ${infoEnvio.nombre}\n• Demora estimada: ${infoEnvio.demora}\n`;
+    mensaje += `🚚 *Costo de Envío:* ${formatearMoneda(costoEnvio)}\n\n`;
+    mensaje += `🛒 *PRODUCTOS*\n${detalleProductos}\n`;
+    mensaje += `💳 *PAGO*\n• Método: ${textoMetodoPago}\n`;
+    mensaje += `• Subtotal: ${formatearMoneda(subtotal)}\n`;
+    if (descuento > 0) mensaje += `• Descuento: -${formatearMoneda(descuento)}\n`;
+    if (recargoTotal > 0) mensaje += `• Recargo: +${formatearMoneda(recargoTotal)}\n`;
+
+    if (cuotasGlobal > 1) {
+        mensaje += `\n🔢 *FINANCIAMIENTO*\n• Cantidad de Pagos: ${cuotasGlobal}\n• Valor por Cuota: ${formatearMoneda(valorCuota)}\n`;
+    }
+
+    mensaje += `\n💰 *MONTO TOTAL FINAL:* ${formatearMoneda(total)}\n\n`;
+    mensaje += `📝 *Observaciones:* ${obs}\n\n`;
+    mensaje += `Hola, ya elegí mi producto y me gustaría avanzar con la compra.`;
+
+    const textoCodificado = encodeURIComponent(mensaje);
+    let url = '';
+    if (destino === 'web') {
+        url = `https://web.whatsapp.com/send?phone=${NUMERO_WHATSAPP}&text=${textoCodificado}`;
+    } else if (destino === 'business') {
+        url = `https://api.whatsapp.com/send?phone=${NUMERO_WHATSAPP}&text=${textoCodificado}`;
+    } else {
+        url = `https://wa.me/${NUMERO_WHATSAPP}?text=${textoCodificado}`;
+    }
+
+    window.open(url, '_blank', 'noopener,noreferrer');
+
+    setTimeout(() => {
+        alert(`Pedido preparado correctamente.\n\nCódigo de seguimiento:\n${codigoSeguimiento}\n\nGuardá este código para cargarlo posteriormente en tu sistema de seguimiento.`);
+    }, 500);
+};
+
+// Inicializar renderizado
+renderizarProductos();
+actualizarContadorCarrito();
+</script>
+
+</body>
+</html>
+
